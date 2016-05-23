@@ -1,0 +1,35 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2> Position Index</h2>
+
+<div id="grid"></div>
+
+
+@section scripts {
+
+
+
+
+<script id="popup-editor" type="text/x-kendo-template">
+    
+    
+    <h3>Edit Person</h3>
+    <div class="k-edit-label">
+        <label for="EmployeeId">Select Employee: </label>
+    </div>
+    <div class="k-edit-field" data-container-for="EmployeeId"> 
+        <input id="EmployeeId" name="EmployeeId" data-bind="value: EmployeeId" data-text-field="Firstname"
+               data-value-field="EmployeeId" />
+    </div>
+    <p>
+        <label for="PositionId">Select Position: </label><input id="PositionId`" name="PositionId" data-bind="value:PositionId" data-text-field="Name"  data-value-field="Id"/>
+    </p>
+    <p>
+        <label for="Active">Active: </label><input id= "Active" type="checkbox" data-bind="checked: Active"/>
+    </p>
+</script>
+    <script src="~/Scripts/Positions/index.js"></script>
+}
