@@ -48,6 +48,22 @@ namespace UI.Api
                 }).ToList();
             return Ok(result);
         }
+        [Route("api/CustomersPerSuburb")]
+        [HttpGet]
+        public IHttpActionResult GetCustomersPerSuburb()
+        {
+            //var [] count = new 
+            var model = _serviceSite.AsQueryable()
+                .Select(s => new
+                {
+                    Id = s.Customer.Id,
+                    Name = s.Customer.Name
+                    //need to Fetch customer count for CustomerSite where its equal to a  == zone         
+
+                }).ToList();
+
+            return Ok(model);
+        }
 
         [Route("api/SiteCustomers")]
         [HttpGet]
