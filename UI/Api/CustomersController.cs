@@ -37,10 +37,11 @@ namespace UI.Api
                 .Select(c => new
                 {
                     Id = c.Id,
-                    Name = c.Name
+                    Name = c.Name.Count(),
+                    Suburb = Site.Suburb.Count(),
                     //need to Fetch customer count for CustomerSite where its equal to a  == zone         
 
-                }).ToList();
+                }).Where().ToList();
 
             return Ok(model);
         }

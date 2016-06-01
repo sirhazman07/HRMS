@@ -50,14 +50,14 @@ namespace UI.Api
         }
         [Route("api/CustomersPerSuburb")]
         [HttpGet]
-        public IHttpActionResult GetCustomersPerSuburb()
+        public IHttpActionResult GetCustomersPerSuburb(FilterRequest filter)
         {
-            //var [] count = new 
-            var model = _serviceSite.AsQueryable()
+            var model = _repoSite.AsQueryable()
                 .Select(s => new
                 {
-                    Id = s.Customer.Id,
-                    Name = s.Customer.Name
+                    
+                    Customer = new List<int>() { s.Site.CustomerId },
+                    Suburb = new List<char>() { s.Site.Address.Suburb.Name},
                     //need to Fetch customer count for CustomerSite where its equal to a  == zone         
 
                 }).ToList();
